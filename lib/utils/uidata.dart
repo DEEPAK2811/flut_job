@@ -7,6 +7,7 @@ class UIData{
 
 //routes
 static const String homeRoute = "/home";
+static const String dashboardRoute = "/dashboard";
 
 
 
