@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "191842601144",
+    "firebase_url": "https://jobs-89b32.firebaseio.com",
+    "project_id": "jobs-89b32",
+    "storage_bucket": "jobs-89b32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191842601144:android:bbca69676a14e96c",
+        "android_client_info": {
+          "package_name": "com.example.flutjob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191842601144-h7aujk8kqt7uvc0bvp6g1btglfnqrhmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm_BX4PbHRRpUDT2WyezX3HS2Mfxq22cU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
