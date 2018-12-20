@@ -5,7 +5,9 @@ import 'package:flut_job/ui/pages/testpage.dart';
 import 'package:flut_job/utils/uidata.dart';
 import 'package:flutter/material.dart';
 
+
 class home extends StatelessWidget {
+
 final materialApp = MaterialApp(
 
   debugShowCheckedModeBanner: false,  // Title
