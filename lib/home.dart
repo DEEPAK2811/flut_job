@@ -15,7 +15,7 @@ final materialApp = MaterialApp(
       initialRoute: "/",
       routes: <String,WidgetBuilder>{
         UIData.homeRoute:(BuildContext context) => new newpagee(),
-        UIData.dashboardRoute:(BuildContext context) => new dashboard(),
+        UIData.dashboardRoute:(BuildContext context) => new Dashboard(),
       },
 
       // Home

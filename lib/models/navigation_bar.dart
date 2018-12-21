@@ -22,7 +22,7 @@ class NavBar extends StatelessWidget {
           ),
           new ListTile(
             title: new Text("Test 2 "),
-            onTap: () => Navigator.pushNamed(context, UIData.homeRoute)
+            onTap: () => Navigator.pushNamed(context, UIData.dashboardRoute)
             ),
           
           new Divider(),

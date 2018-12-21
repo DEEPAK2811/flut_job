@@ -28,21 +28,25 @@ class LabelBelowIcon extends StatelessWidget {
           isCircleEnabled
               ? CircleAvatar(
                   backgroundColor: circleColor,
-                  radius: 20.0,
+                  radius: 25.0,
                   child: Icon(
                     icon,
-                    size: 12.0,
+                    size: 19.0,
                     color: iconColor,
                   ),
                 )
               : Icon(
                   icon,
-                  size: 23.0,
+                  size: 25.0,
                   color: iconColor,
                 ),
           SizedBox(
             height: betweenHeight,
           ),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            )
         
         ],
       ),
