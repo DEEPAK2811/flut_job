@@ -87,6 +87,7 @@ class Dashboard extends StatelessWidget {
                     firstIcon: FontAwesomeIcons.edit,
                     firstLabel: "CreateJobs",
                     firstIconCircleColor: Colors.blue,
+                    
                     secondIcon: FontAwesomeIcons.opencart,
                     secondLabel: "Available",
                     secondIconCircleColor: Colors.orange,
