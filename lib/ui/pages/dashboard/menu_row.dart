@@ -37,16 +37,20 @@ class DashboardMenuRow extends StatelessWidget {
             icon: firstIcon,
             label: firstLabel,
             circleColor: firstIconCircleColor,
+            
+          
           ),
           LabelBelowIcon(
             icon: secondIcon,
             label: secondLabel,
             circleColor: secondIconCircleColor,
+           
           ),
           LabelBelowIcon(
             icon: thirdIcon,
             label: thirdLabel,
             circleColor: thirdIconCircleColor,
+            
           ),
         ],
       ),

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "191842601144-n9e85ugcfj4h8q3gnpegl484mltiop4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutjob",
+            "certificate_hash": "60cf3836966daa45395883a2a146929f034a8f4e"
+          }
+        },
+        {
           "client_id": "191842601144-h7aujk8kqt7uvc0bvp6g1btglfnqrhmo.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191842601144-h7aujk8kqt7uvc0bvp6g1btglfnqrhmo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

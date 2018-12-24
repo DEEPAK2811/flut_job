@@ -1,3 +1,4 @@
+import 'package:flut_job/utils/uidata.dart';
 import 'package:flutter/material.dart';
 
 class LabelBelowIcon extends StatelessWidget {
@@ -20,7 +21,7 @@ class LabelBelowIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onPressed,
+      onTap: () => Navigator.pushNamed(context, UIData.homeRoute),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,4 +53,8 @@ class LabelBelowIcon extends StatelessWidget {
       ),
     );
   }
+
+
 }
+
+

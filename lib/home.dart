@@ -14,7 +14,7 @@ final materialApp = MaterialApp(
       title: "FlutJob",
       initialRoute: "/",
       routes: <String,WidgetBuilder>{
-        UIData.homeRoute:(BuildContext context) => new newpagee(),
+        UIData.homeRoute:(BuildContext context) => new CrudSample(),
         UIData.dashboardRoute:(BuildContext context) => new Dashboard(),
       },
 
