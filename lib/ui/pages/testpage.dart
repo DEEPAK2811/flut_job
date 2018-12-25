@@ -107,28 +107,40 @@ class CrudSampleState extends State<CrudSample> {
         title: new Text("Available Jobs"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 1.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            
             new Row(
+              
               children: <Widget>[
+                background_img(context),
                 new RaisedButton(
                   onPressed: _add,
                   child: new Text("Add"),
                   color: Colors.cyan,
                 ),
+                   new Padding(
+              padding: const EdgeInsets.all(2.0),
+            ),
                 new RaisedButton(
                   onPressed: _update,
                   child: new Text("Update"),
                   color: Colors.lightBlue,
                 ),
+                   new Padding(
+              padding: const EdgeInsets.all(2.0),
+            ),
                 new RaisedButton(
                   onPressed: _delete,
                   child: new Text("Delete"),
                   color: Colors.orange,
                 ),
+                 new Padding(
+              padding: const EdgeInsets.all(2.0),
+            ),
                 new RaisedButton(
                   onPressed: _fetch,
                   child: new Text("Fetch"),
@@ -136,7 +148,7 @@ class CrudSampleState extends State<CrudSample> {
                 ),
               ],
             ),
-            new Padding(
+            /* new Padding(
               padding: const EdgeInsets.all(10.0),
             ),
             myText == null
@@ -147,8 +159,15 @@ class CrudSampleState extends State<CrudSample> {
                   ),
             new Padding(
               padding: const EdgeInsets.all(10.0),
-            ),
-            Expanded(child: SizedBox(height: 200.0, child: st())),
+            ),*/
+            Expanded(child: 
+            SizedBox(
+              height: 400.0, 
+              child: st(),
+              
+              ),
+              
+              ),
           ],
         ),
       ),
@@ -170,6 +189,12 @@ class CrudSampleState extends State<CrudSample> {
               return JobPage(docs);
           }
         },
+      );
+
+      Widget background_img(BuildContext context) => DecoratedBox(
+        decoration: new BoxDecoration(
+            image: new DecorationImage(
+                image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
       );
 }
 
@@ -201,15 +226,28 @@ class JobPageState extends State<JobPage> {
     //  }).toList();
 
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SafeArea(
             child: Scaffold(
-      body: Container(
-          child: ListView.builder(
-              itemCount: widget.allJobs.length,
-              padding: const EdgeInsets.only(top: 10.0),
-              itemBuilder: (context, index) {
-                return JobCard(widget.allJobs[index]);
-              })),
-    )));
+          backgroundColor: Colors.black,
+          body: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              background_img(context),
+              ListView.builder(
+                  itemCount: widget.allJobs.length,
+                  padding: const EdgeInsets.only(top: 30.0),
+                  itemBuilder: (context, index) {
+                    return JobCard(widget.allJobs[index]);
+                  }),
+            ],
+          ),
+        )));
   }
+
+  Widget background_img(BuildContext context) => DecoratedBox(
+        decoration: new BoxDecoration(
+            image: new DecorationImage(
+                image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
+      );
 }

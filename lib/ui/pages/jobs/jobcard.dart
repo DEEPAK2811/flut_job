@@ -1,9 +1,7 @@
 import 'package:flut_job/models/joblistmodel.dart';
 import 'package:flutter/material.dart';
 
-
 class JobCard extends StatefulWidget {
- 
   final JoblistModel data;
 
   JobCard(this.data);
@@ -21,40 +19,36 @@ class JobCardState extends State<JobCard> {
   JobCardState(this.data);
 
   Widget get jobCard {
-    return
-      new Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.album),
-              title: Text('${data.name} is ${data.desc} '),
-              subtitle: Text('from ${data.location} .'),
-            ),
-            new ButtonTheme.bar( // make buttons use the appropriate styles for cards
-              child: new ButtonBar(
-                children: <Widget>[
-                  new FlatButton(
-                    child: const Text('Thumb up'),
-                    onPressed: () { /* ... */ },
-                  ),
-                  new FlatButton(
-                    child: const Text('Thumb down'),
-                    onPressed: () { /* ... */ },
-                  )]))]));
+    return new Card(
+        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+      ListTile(
+        leading: const Icon(Icons.book),
+        title: Text('${data.name.toUpperCase()} :: ${data.location} '),
+        subtitle: Text('Description: ${data.desc} .'),
+      ),
+      new ButtonTheme.bar(
+          // make buttons use the appropriate styles for cards
+          child: new ButtonBar(children: <Widget>[
+        new FlatButton(
+          child: const Text('Agree=>Work'),
+          onPressed: () {/* ... */},
+        ),
+        new FlatButton(
+          child: const Text('Deny'),
+          onPressed: () {/* ... */},
+        )
+      ]))
+    ]));
   }
 
   @override
   Widget build(BuildContext context) {
     return new Container(
-          child:  jobCard,
-        );
+      child: jobCard,
+      padding:const EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 10.0)
+    );
   }
 }
-
-
-
-
 
 /*import 'package:flutter/material.dart';
 
