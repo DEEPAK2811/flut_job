@@ -1,4 +1,6 @@
-import 'package:flut_job/models/joblistmodel.dart';
+
+
+/*import 'package:flut_job/models/joblistmodel.dart';
 import 'package:flutter/material.dart';
 
 class joblist extends StatefulWidget {
@@ -32,3 +34,5 @@ class _joblistState extends State<joblist> {
   }
 
 }
+
+*/

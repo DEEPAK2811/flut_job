@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'package:flut_job/models/joblistmodel.dart';
+import 'package:flut_job/ui/pages/jobs/jobcard.dart';
+
 class CrudSample extends StatefulWidget {
   @override
   CrudSampleState createState() {
@@ -160,17 +163,53 @@ class CrudSampleState extends State<CrudSample> {
             case ConnectionState.waiting:
               return new Center(child: new CircularProgressIndicator());
             default:
-              return new ListView(children: getExpenseItems(snapshot));
+              var documents = snapshot.data?.documents ?? [];
+              var docs = documents
+                  .map((snapshot) => JoblistModel.from(snapshot))
+                  .toList();
+              return JobPage(docs);
           }
         },
       );
 }
 
-getExpenseItems(AsyncSnapshot<QuerySnapshot> snapshot) {
+/*getExpenseItems(AsyncSnapshot<QuerySnapshot> snapshot) {
   return snapshot.data.documents
       .map((doc) => new ListTile(
           title: new Text(doc["name"]),
           subtitle: new Text(doc["desc"].toString())
           ))
       .toList();
+}  */
+
+class JobPage extends StatefulWidget {
+  final List<JoblistModel> allJobs;
+
+  JobPage(this.allJobs);
+
+  @override
+  State<StatefulWidget> createState() {
+    return JobPageState();
+  }
+}
+
+class JobPageState extends State<JobPage> {
+  @override
+  Widget build(BuildContext context) {
+    //  var filteredBaby = widget.allFish.where((BabyData data) {
+    //    data.name = 'Dana';
+    //  }).toList();
+
+    return MaterialApp(
+        home: SafeArea(
+            child: Scaffold(
+      body: Container(
+          child: ListView.builder(
+              itemCount: widget.allJobs.length,
+              padding: const EdgeInsets.only(top: 10.0),
+              itemBuilder: (context, index) {
+                return JobCard(widget.allJobs[index]);
+              })),
+    )));
+  }
 }
