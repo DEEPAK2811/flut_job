@@ -1,8 +1,10 @@
+import 'package:flut_job/utils/uidata.dart';
+import 'package:flut_job/models/navigation_bar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'menu_row.dart';
 import 'package:flut_job/ui/widgets/profile_tile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flut_job/ui/widgets/label_below_icon.dart';
 
 class Dashboard extends StatelessWidget {
   Size deviceSize;
@@ -17,8 +19,8 @@ class Dashboard extends StatelessWidget {
                   new IconButton(
                     icon: new Icon(
                       defaultTargetPlatform == TargetPlatform.android
-                          ? Icons.arrow_back
-                          : Icons.arrow_back_ios,
+                          ? Icons.menu
+                          : Icons.menu,
                       color: Colors.white,
                     ),
                     onPressed: () => Navigator.canPop(context)
@@ -73,7 +75,7 @@ class Dashboard extends StatelessWidget {
         ),
       );
 
-  Widget actionMenuCard() => Padding(
+  Widget actionMenuCard(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Card(
           elevation: 2.0,
@@ -83,41 +85,117 @@ class Dashboard extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  DashboardMenuRow(
-                    firstIcon: FontAwesomeIcons.edit,
-                    firstLabel: "CreateJobs",
-                    firstIconCircleColor: Colors.blue,
-                    
-                    secondIcon: FontAwesomeIcons.opencart,
-                    secondLabel: "Available",
-                    secondIconCircleColor: Colors.orange,
-                    thirdIcon: FontAwesomeIcons.mapMarkerAlt,
-                    thirdLabel: "Nearby",
-                    thirdIconCircleColor: Colors.purple,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.edit,
+                            label: "CreateJobs",
+                            circleColor: Colors.blue,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.createJobRoute),
+                        ),
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.opencart,
+                            label: "Available",
+                            circleColor: Colors.orange,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.homeRoute),
+                        ),
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.mapMarkerAlt,
+                            label: "Nearby",
+                            circleColor: Colors.purple,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.nearbyRoute),
+                        ),
+                      ],
+                    ),
                   ),
-                  DashboardMenuRow(
-                    firstIcon: FontAwesomeIcons.solidStickyNote,
-                    firstLabel: "Complaints",
-                    firstIconCircleColor: Colors.cyan,
-                    secondIcon: FontAwesomeIcons.clock,
-                    secondLabel: "Shifts",
-                    secondIconCircleColor: Colors.redAccent,
-                    thirdIcon: FontAwesomeIcons.userFriends,
-                    thirdLabel: "GroupTask",
-                    thirdIconCircleColor: Colors.pink,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.solidStickyNote,
+                            label: "Complaints",
+                            circleColor: Colors.cyan,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.complaintRoute),
+                        ),
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.clock,
+                            label: "Shifts",
+                            circleColor: Colors.redAccent,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.homeRoute),
+                        ),
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.userFriends,
+                            label: "Group Task",
+                            circleColor: Colors.pink,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.homeRoute),
+                        ),
+                      ],
+                    ),
                   ),
-                  DashboardMenuRow(
-                    firstIcon: FontAwesomeIcons.solidHeart,
-                    firstLabel: "Saved Jobs",
-                    firstIconCircleColor: Colors.red,
-                    secondIcon: FontAwesomeIcons.store,
-                    secondLabel: "Assets",
-                    secondIconCircleColor: Colors.teal,
-                    thirdIcon: FontAwesomeIcons.solidNewspaper,
-                    thirdLabel: "Documents",
-                    thirdIconCircleColor: Colors.lime,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.solidHeart,
+                            label: "Saved Jobs",
+                            circleColor: Colors.red,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.homeRoute),
+                        ),
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.store,
+                            label: "Assets",
+                            circleColor: Colors.teal,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.homeRoute),
+                        ),
+                        new InkWell(
+                          child: LabelBelowIcon(
+                            icon: FontAwesomeIcons.solidNewspaper,
+                            label: "Documents",
+                            circleColor: Colors.lime,
+                          ),
+                          onTap: () =>
+                              Navigator.pushNamed(context, UIData.homeRoute),
+                        ),
+                      ],
+                    ),
                   ),
-                  
                 ],
               ),
             ),
@@ -179,7 +257,7 @@ class Dashboard extends StatelessWidget {
             SizedBox(
               height: deviceSize.height * 0.01,
             ),
-            actionMenuCard(),
+            actionMenuCard(context),
             SizedBox(
               height: deviceSize.height * 0.01,
             ),
@@ -197,7 +275,9 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     deviceSize = MediaQuery.of(context).size;
+
     return Scaffold(
+      drawer: new NavBar(),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -207,4 +287,13 @@ class Dashboard extends StatelessWidget {
       ),
     );
   }
+
+  /* act(int i) {
+    BuildContext context;
+                      switch(i){
+                        case 1:Navigator.pushNamed(context, UIData.homeRoute);
+                        break;
+                      
+  }}*/
+
 }
