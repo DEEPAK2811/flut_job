@@ -1,8 +1,5 @@
 import 'package:flut_job/models/navigation_bar.dart';
 import 'package:flut_job/ui/pages/dashboard/dashboard.dart';
-import 'package:flut_job/ui/pages/home_page.dart';
-import 'package:flut_job/ui/pages/testpage.dart';
-import 'package:flut_job/utils/uidata.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,22 +9,23 @@ final materialApp = MaterialApp(
 
   debugShowCheckedModeBanner: false,  // Title
       title: "FlutJob",
-      initialRoute: "/",
+      /*initialRoute: "/",
       routes: <String,WidgetBuilder>{
         UIData.homeRoute:(BuildContext context) => new CrudSample(),
         UIData.dashboardRoute:(BuildContext context) => new Dashboard(),
-      },
+        UIData.loginRoute:(BuildContext context) => new HomePage(),
+        UIData.createJobRoute:(BuildContext context) => new createjob(),
+  
+
+      },*/
 
       // Home
       home: new Scaffold(
         // Appbar
         drawer: new NavBar(),
-        appBar: new AppBar(
-          // Title
-          title: new Text("Home"),
-        ),
+        
         // Body
-        body: new HomePage()
+        body: new Dashboard()
 
       ));
   @override
