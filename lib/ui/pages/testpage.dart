@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flut_job/main.dart';
+import 'package:flut_job/ui/pages/home_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,27 +20,30 @@ class CrudSample extends StatefulWidget {
 class CrudSampleState extends State<CrudSample> {
   String myText;
   StreamSubscription<DocumentSnapshot> subscription;
-
+  
+  
   final DocumentReference documentReference =
-      Firestore.instance.document("myData/dummy");
+      Firestore.instance.document("name/email");
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn googleSignIn = new GoogleSignIn();
+
 
   Future<FirebaseUser> _signIn() async {
     GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     GoogleSignInAuthentication gSA = await googleSignInAccount.authentication;
 
-    FirebaseUser user = await _auth.signInWithGoogle(
+    final FirebaseUser user = await _auth.signInWithGoogle(
         idToken: gSA.idToken, accessToken: gSA.accessToken);
 
-    print("User Name : ${user.displayName}");
+    print("User Name : ${user.email}");
     return user;
   }
 
   void _signOut() {
     googleSignIn.signOut();
     print("User Signed out");
+    Navigator.of(context).pushReplacementNamed('/');
   }
 
   void _add() {
@@ -107,7 +112,7 @@ class CrudSampleState extends State<CrudSample> {
         title: new Text("Available Jobs"),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 1.0),
+        padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 0.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -123,7 +128,7 @@ class CrudSampleState extends State<CrudSample> {
                   color: Colors.cyan,
                 ),
                    new Padding(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(1.0),
             ),
                 new RaisedButton(
                   onPressed: _update,
@@ -131,7 +136,7 @@ class CrudSampleState extends State<CrudSample> {
                   color: Colors.lightBlue,
                 ),
                    new Padding(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(1.0),
             ),
                 new RaisedButton(
                   onPressed: _delete,
@@ -139,15 +144,16 @@ class CrudSampleState extends State<CrudSample> {
                   color: Colors.orange,
                 ),
                  new Padding(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(1.0),
             ),
                 new RaisedButton(
-                  onPressed: _fetch,
-                  child: new Text("Fetch"),
+                  onPressed: _signOut,
+                  child: new Text("SignOut"),
                   color: Colors.lime,
-                ),
+          ),
               ],
             ),
+           
             /* new Padding(
               padding: const EdgeInsets.all(10.0),
             ),
