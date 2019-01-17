@@ -38,18 +38,6 @@ class JoblistModel {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*class Joblistmodel {
   String jobid;
   String jobname;
