@@ -1,13 +1,17 @@
-import 'dart:math';
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
 
 class UIData{
 
 //routes
 static const String homeRoute = "/home";
-static const String dashboardRoute = "/dashboard";
+static const String nearbyRoute = "/ui/pages/nearby";
+static const String assignJobRoute = "/ui/pages/assignedjobs";
+static const String complaintRoute = "/ui/pages/complaint";
+static const String loginRoute = "/login";
+static const String newJobRoute = "/ui/pages/jobs";
+static const String dashboardRoute = "/ui/pages/dashboard/dashboard";
+static const String createJobRoute = "/ui/pages/createjob";
+
+
 
 
 
